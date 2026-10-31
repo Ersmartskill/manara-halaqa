@@ -1,0 +1,14 @@
+# لا ترفع ملف الأسرار إلى المستودع
+.env
+.env.*
+!.env.example
+
+# ملفات مؤقتة ونسخ احتياطية
+*.bak
+*.tmp
+backups/
+supabase/.temp/
+supabase/.branches/
+node_modules/
+.DS_Store
+Thumbs.db
