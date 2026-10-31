@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="جمعية قبس للقرآن والسنة والخطابة">
+  <defs>
+    <linearGradient id="qg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17604f"/>
+      <stop offset="1" stop-color="#082b24"/>
+    </linearGradient>
+    <linearGradient id="qgold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0dfae"/>
+      <stop offset="1" stop-color="#c19a3e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="48" cy="48" r="46" fill="url(#qg)"/>
+  <circle cx="48" cy="48" r="40" fill="none" stroke="#d8b65f" stroke-opacity=".38" stroke-width="1"/>
+  <path d="M48 18c8.5 10.2 13.5 17.3 13.5 25.2A13.5 13.5 0 0 1 48 56.7a13.5 13.5 0 0 1-13.5-13.5C34.5 35.3 39.5 28.2 48 18z" fill="url(#qgold)"/>
+  <path d="M48 31c4.2 5.3 6.6 9 6.6 13a6.6 6.6 0 1 1-13.2 0c0-4 2.4-7.7 6.6-13z" fill="#faf6ea" opacity=".9"/>
+  <path d="M24 62c8.2-4.8 16.3-4.8 24 0 7.7-4.8 15.8-4.8 24 0v14.5c-8.2-4.8-16.3-4.8-24 0-7.7-4.8-15.8-4.8-24 0z" fill="#faf6ea"/>
+  <path d="M48 62v14.5" stroke="#c19a3e" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M30 67c4.5-1.9 9-1.9 13.5 0M30 72c4.5-1.9 9-1.9 13.5 0M52.5 67c4.5-1.9 9-1.9 13.5 0M52.5 72c4.5-1.9 9-1.9 13.5 0" fill="none" stroke="#17604f" stroke-opacity=".4" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M33 26l2.2 4.3 4.8.7-3.5 3.4.8 4.8L33 37l-4.3 2.2.8-4.8-3.5-3.4 4.8-.7z" fill="#e3c276" opacity=".85"/>
+</svg>
