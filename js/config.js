@@ -9,8 +9,8 @@
 window.MANARA_CONFIG = {
   mode: 'auto', // auto | local | supabase
 
-  supabaseUrl: '',      // مثال: https://xxxxxxxxxxxx.supabase.co
-  supabaseAnonKey: '',  // مثال: eyJhbGciOiJIUzI1NiIsInR5cCI6...
+  supabaseUrl: 'https://pfbhdtdtcjgbcavkyrkj.supabase.co',
+  supabaseAnonKey: 'sb_publishable_m6XQXUZ3DxHdehP0-iWqZQ_5wTgJGVo',
 
   edgeFunction: 'admin-user',
 
