@@ -104,6 +104,21 @@ function Encode-Path([string]$Path) {
   return (($Path -split '/') | ForEach-Object { [uri]::EscapeDataString($_) }) -join '/'
 }
 
+function Get-GitBlobSha([string]$Path) {
+  $bytes = [System.IO.File]::ReadAllBytes($Path)
+  $header = [System.Text.Encoding]::ASCII.GetBytes("blob $($bytes.Length)`0")
+  $payload = New-Object byte[] ($header.Length + $bytes.Length)
+  [Array]::Copy($header, 0, $payload, 0, $header.Length)
+  [Array]::Copy($bytes, 0, $payload, $header.Length, $bytes.Length)
+  $sha1 = [System.Security.Cryptography.SHA1]::Create()
+  try {
+    $hash = $sha1.ComputeHash($payload)
+  } finally {
+    $sha1.Dispose()
+  }
+  return (($hash | ForEach-Object { $_.ToString('x2') }) -join '')
+}
+
 Write-Host "→ التحقق من حساب GitHub..." -ForegroundColor Cyan
 $Me = Invoke-GitHub -Method 'GET' -Uri 'https://api.github.com/user'
 if (-not $Me -or -not $Me.login) { throw "تعذر التحقق من رمز GitHub." }
@@ -118,7 +133,7 @@ if (-not $Repo) {
   Write-Host "→ إنشاء المستودع $Owner/$RepoName ($Visibility)..." -ForegroundColor Cyan
   $CreateBody = @{
     name        = $RepoName
-    description = 'منارة الحلقة — سجل إنجاز طلاب حلقة المنارة المتقدمة بجامع الراجحي'
+    description = 'منارة الحلقة — سجل إنجاز طلاب حلقة المنارة المتقدمة في حلقات جامع الراجحي'
     private     = ($Visibility -eq 'private')
     auto_init   = $true
   }
@@ -156,6 +171,12 @@ foreach ($file in $Files) {
   $rel = $file.FullName.Substring($ProjectRoot.Length).TrimStart('\', '/').Replace('\', '/')
   $encoded = Encode-Path $rel
   $existing = Invoke-GitHub -Method 'GET' -Uri "$RepoUri/contents/$encoded`?ref=$([uri]::EscapeDataString($Branch))"
+
+  $localSha = Get-GitBlobSha $file.FullName
+  if ($existing -and $existing.sha -eq $localSha) {
+    Write-Host "  = $rel (بدون تغيير)" -ForegroundColor DarkGray
+    continue
+  }
 
   $body = @{
     message = "نشر منارة الحلقة: $rel"
