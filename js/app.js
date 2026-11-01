@@ -133,16 +133,16 @@
   function logoStrip(mode) {
     const cls = mode === 'mini' ? ' logo-strip-mini' : mode === 'auth' ? ' logo-strip-auth' : '';
     return '<div class="logo-strip' + cls + '">' +
-      '<div class="logo-item"><img src="./assets/logos/manara.svg" alt="شعار المنارة الوقفية"><span>المنارة الوقفية</span></div>' +
-      '<div class="logo-item"><img src="./assets/logos/rajhi.svg" alt="شعار جامع الراجحي"><span>جامع الراجحي</span></div>' +
-      '<div class="logo-item"><img src="./assets/logos/qabas.svg" alt="شعار جمعية قبس"><span>قبس للقرآن والسنة والخطابة</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة"><span>شركة المنارة المتقدمة</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/rajhi-mosque.png" alt="شعار حلقات جامع الراجحي"><span>حلقات جامع الراجحي</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/qabas.png" alt="شعار جمعية قبس للقرآن والسنة والخطابة"><span>جمعية قبس للقرآن والسنة والخطابة</span></div>' +
       '</div>';
   }
 
   function brand(size) {
     return '<a class="brand" href="#/dashboard" aria-label="منارة الحلقة — الرئيسية">' +
-      '<img class="brand-logo" src="./assets/logos/manara.svg" alt="" width="' + (size || 46) + '" height="' + (size || 46) + '">' +
-      '<span class="brand-text"><strong>منارة الحلقة</strong><small>المنارة المتقدمة · جامع الراجحي</small></span>' +
+      '<img class="brand-logo" src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="' + (size || 46) + '" height="' + (size || 46) + '">' +
+      '<span class="brand-text"><strong>منارة الحلقة</strong><small>شركة المنارة المتقدمة · حلقات جامع الراجحي</small></span>' +
       '</a>';
   }
 
@@ -226,7 +226,7 @@
     document.title = 'تعذر تشغيل منارة الحلقة';
     const app = document.getElementById('app');
     app.innerHTML = '<div class="fatal-screen">' +
-      '<img src="./assets/logos/manara.svg" alt="" width="76" height="76">' +
+      '<img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="150" height="60">' +
       '<span class="eyebrow">منارة الحلقة</span>' +
       '<h1>تعذّر تشغيل السجل</h1>' +
       '<p>' + esc(error && error.message ? error.message : 'حدث خطأ غير متوقع أثناء تهيئة التطبيق.') + '</p>' +
@@ -262,15 +262,15 @@
       '<div class="auth-orbit orbit-b" aria-hidden="true"></div>' +
       '<div class="auth-visual-head">' +
       '<div class="auth-brand">' +
-      '<img src="./assets/logos/manara.svg" alt="المنارة الوقفية" width="54" height="54">' +
-      '<div><span>المنارة المتقدمة</span><strong>منارة الحلقة</strong></div>' +
+      '<img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="54" height="54">' +
+      '<div><span>شركة المنارة المتقدمة</span><strong>منارة الحلقة</strong></div>' +
       '</div>' +
       '<span class="pill pill-gold">' + icon('book-open', 15) + ' سجل الإنجاز</span>' +
       '</div>' +
       '<div class="auth-copy">' +
-      '<span class="eyebrow light">حلقة جامع الراجحي · بإشراف جمعية قبس</span>' +
-      '<h1>كل إنجاز<br><em>يستحق أن يروى.</em></h1>' +
-      '<p>سجلٌ رقميٌّ يجمع إنجازات طلاب حلقة المنارة المتقدمة، وتقييمات معلميهم وملاحظاتهم، في مكانٍ واحدٍ يسهل الرجوع إليه.</p>' +
+      '<span class="eyebrow light">حلقات جامع الراجحي · بإشراف جمعية قبس للقرآن والسنة والخطابة</span>' +
+      '<h1>كلُّ إنجازٍ،<br><em>يستحقُّ أن يُروى</em></h1>' +
+      '<p>سجلٌ رقميٌّ يجمع إنجازات طلاب حلقة المنارة المتقدمة في حلقات جامع الراجحي، وتقييمات معلميهم وملاحظاتهم، في مكانٍ واحدٍ يسهل الرجوع إليه.</p>' +
       '<div class="verse-card">' +
       '<span class="verse-mark">﴿</span>' +
       '<p>وَقُل رَّبِّ زِدْنِي عِلْمًا</p>' +
@@ -279,7 +279,7 @@
       '</div>' +
       '<div class="auth-visual-foot">' +
       logoStrip('auth') +
-      '<div class="auth-meta"><span>' + icon('calendar', 15) + ' ' + esc(state.settings && state.settings.year ? state.settings.year : 'العام الدراسي ١٤٤٨هـ') + '</span><span>' + icon('mosque', 15) + ' ' + esc(state.settings && state.settings.mosque ? state.settings.mosque : 'جامع الراجحي') + '</span></div>' +
+      '<div class="auth-meta"><span>' + icon('calendar', 15) + ' ' + esc(state.settings && state.settings.year ? state.settings.year : 'العام الدراسي ١٤٤٨هـ') + '</span><span>' + icon('mosque', 15) + ' ' + esc(state.settings && state.settings.mosque ? state.settings.mosque : 'حلقات جامع الراجحي') + '</span></div>' +
       '</div>' +
       '</section>' +
       '<section class="auth-panel">' +
@@ -317,7 +317,7 @@
       '<button type="button" class="link-btn" data-action="open-about">عن الحلقة وسياسة البيانات</button>' +
       '</div>' +
       '</div>' +
-      '<p class="auth-copyright">© ' + new Date().getFullYear() + ' منارة الحلقة · جامع الراجحي — بإشراف جمعية قبس للقرآن والسنة والخطابة</p>' +
+      '<p class="auth-copyright">© ' + new Date().getFullYear() + ' منارة الحلقة · حلقات جامع الراجحي — بإشراف جمعية قبس للقرآن والسنة والخطابة</p>' +
       '</section>' +
       '</div>';
   }
@@ -406,7 +406,7 @@
       '</div>' +
       '<div class="halaqa-pill">' +
       '<span class="halaqa-dot">' + icon('mosque', 17) + '</span>' +
-      '<div><strong>' + esc(state.settings.name || 'حلقة المنارة المتقدمة') + '</strong><span>' + esc(state.settings.mosque || 'جامع الراجحي') + ' · ' + esc(state.settings.year || '') + '</span></div>' +
+      '<div><strong>' + esc(state.settings.name || 'حلقة المنارة المتقدمة') + '</strong><span>' + esc(state.settings.mosque || 'حلقات جامع الراجحي') + ' · ' + esc(state.settings.year || '') + '</span></div>' +
       '</div>' +
       '<nav class="side-nav" aria-label="التنقل الرئيسي">' + nav + '</nav>' +
       '<div class="sidebar-bottom">' +
@@ -431,7 +431,7 @@
       '</div>' +
       '</header>' +
       '<div class="content" id="view">' + renderRoute() + '</div>' +
-      '<footer class="app-footer"><span>© ' + new Date().getFullYear() + ' منارة الحلقة · ' + esc(state.settings.mosque || 'جامع الراجحي') + '</span><span class="footer-sep">·</span><span>بإشراف ' + esc(state.settings.association || 'جمعية قبس للقرآن والسنة والخطابة') + '</span></footer>' +
+      '<footer class="app-footer"><span>© ' + new Date().getFullYear() + ' منارة الحلقة · ' + esc(state.settings.mosque || 'حلقات جامع الراجحي') + '</span><span class="footer-sep">·</span><span>بإشراف ' + esc(state.settings.association || 'جمعية قبس للقرآن والسنة والخطابة') + '</span></footer>' +
       '</main>' +
       '</div>';
   }
@@ -969,8 +969,8 @@
 
   function printHeader() {
     return '<div class="print-header">' +
-      '<div class="print-brand"><img src="./assets/logos/manara.svg" alt="" width="46" height="46"><div><strong>منارة الحلقة</strong><span>' + esc(state.settings.name || '') + ' · ' + esc(state.settings.mosque || '') + '</span></div></div>' +
-      '<div class="print-logos"><img src="./assets/logos/rajhi.svg" alt="جامع الراجحي" width="38" height="38"><img src="./assets/logos/qabas.svg" alt="قبس" width="38" height="38"></div>' +
+      '<div class="print-brand"><img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="46" height="46"><div><strong>منارة الحلقة</strong><span>' + esc(state.settings.name || '') + ' · ' + esc(state.settings.mosque || '') + '</span></div></div>' +
+      '<div class="print-logos"><img src="./assets/logos/rajhi-mosque.png" alt="حلقات جامع الراجحي" width="38" height="38"><img src="./assets/logos/qabas.png" alt="جمعية قبس للقرآن والسنة والخطابة" width="38" height="38"></div>' +
       '</div>';
   }
 
@@ -1122,11 +1122,11 @@
       '<section class="card">' +
       sectionHead('الشعارات الرسمية', 'شعارات الجهات المشرفة على الحلقة') +
       '<div class="logo-cards">' +
-      '<div class="logo-card"><img src="./assets/logos/manara.svg" alt="المنارة الوقفية" width="54" height="54"><div><strong>المنارة الوقفية</strong><span>assets/logos/manara.svg</span></div></div>' +
-      '<div class="logo-card"><img src="./assets/logos/rajhi.svg" alt="جامع الراجحي" width="54" height="54"><div><strong>جامع الراجحي</strong><span>assets/logos/rajhi.svg</span></div></div>' +
-      '<div class="logo-card"><img src="./assets/logos/qabas.svg" alt="قبس للقرآن والسنة والخطابة" width="54" height="54"><div><strong>قبس للقرآن والسنة والخطابة</strong><span>assets/logos/qabas.svg</span></div></div>' +
+      '<div class="logo-card"><img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="54" height="54"><div><strong>شركة المنارة المتقدمة</strong><span>assets/logos/manara-company.jpg</span></div></div>' +
+      '<div class="logo-card"><img src="./assets/logos/rajhi-mosque.png" alt="شعار حلقات جامع الراجحي" width="54" height="54"><div><strong>حلقات جامع الراجحي</strong><span>assets/logos/rajhi-mosque.png</span></div></div>' +
+      '<div class="logo-card"><img src="./assets/logos/qabas.png" alt="شعار جمعية قبس للقرآن والسنة والخطابة" width="54" height="54"><div><strong>جمعية قبس للقرآن والسنة والخطابة</strong><span>assets/logos/qabas.png</span></div></div>' +
       '</div>' +
-      '<p class="form-note">الملفات الحالية شعارات تعريفية مرسومة للمشروع. لاستخدام الشعارات الرسمية، استبدل الملفات الثلاثة بنفس الأسماء والأبعاد المربعة.</p>' +
+      '<p class="form-note">الشعارات المعروضة هي الشعارات الرسمية للجهات. لاستبدالها لاحقًا، ضع الملفات الجديدة في assets/logos بنفس الأسماء.</p>' +
       '</section>' +
 
       '<section class="card">' +
@@ -1367,14 +1367,14 @@
   function aboutModal() {
     const s = state.settings;
     const body = '<div class="about-modal">' +
-      '<div class="about-hero"><img src="./assets/logos/manara.svg" alt="" width="64" height="64"><div><h3>' + esc(s.name || 'حلقة المنارة المتقدمة') + '</h3><p>' + esc(s.mosque || 'جامع الراجحي') + ' · ' + esc(s.year || '') + '</p></div></div>' +
+      '<div class="about-hero"><img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة" width="64" height="64"><div><h3>' + esc(s.name || 'حلقة المنارة المتقدمة') + '</h3><p>' + esc(s.mosque || 'حلقات جامع الراجحي') + ' · ' + esc(s.year || '') + '</p></div></div>' +
       '<p>' + esc(s.description || 'سجل رقمي لإنجازات طلاب الحلقة وتقييمات معلميهم.') + '</p>' +
       '<div class="detail-grid"><div><span>المشرف العام</span><strong>' + esc(s.supervisor || '—') + '</strong></div><div><span>المعلم المسؤول</span><strong>' + esc(s.teacher || '—') + '</strong></div><div><span>موعد الحلقة</span><strong>' + esc(s.schedule || '—') + '</strong></div><div><span>المكان</span><strong>' + esc(s.location || '—') + '</strong></div></div>' +
       '<div class="inline-alert info">' + icon('shield', 18) + '<div><strong>سياسة البيانات</strong><p>' + (state.store.mode === 'supabase' ? 'تُحفظ البيانات في قاعدة بيانات Supabase محمية بصلاحيات RLS، ولا يرى الطالب إلا سجله وتقييماته، بينما يرى المعلم والمدير سجلات الطلاب.' : 'في النسخة المحلية تُحفظ البيانات في localStorage داخل هذا المتصفح فقط، ولا تُرسل إلى أي خادم. لا تستخدمها لبيانات حساسة قبل الانتقال إلى السحابة.') + '</p></div></div>' +
       '<div class="logo-strip logo-strip-auth">' +
-      '<div class="logo-item"><img src="./assets/logos/manara.svg" alt=""><span>المنارة الوقفية</span></div>' +
-      '<div class="logo-item"><img src="./assets/logos/rajhi.svg" alt=""><span>جامع الراجحي</span></div>' +
-      '<div class="logo-item"><img src="./assets/logos/qabas.svg" alt=""><span>قبس للقرآن والسنة والخطابة</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/manara-company.jpg" alt="شعار شركة المنارة المتقدمة"><span>شركة المنارة المتقدمة</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/rajhi-mosque.png" alt="شعار حلقات جامع الراجحي"><span>حلقات جامع الراجحي</span></div>' +
+      '<div class="logo-item"><img src="./assets/logos/qabas.png" alt="شعار جمعية قبس للقرآن والسنة والخطابة"><span>جمعية قبس للقرآن والسنة والخطابة</span></div>' +
       '</div>' +
       '<div class="form-actions"><button type="button" class="btn btn-primary" data-action="close-modal">إغلاق</button></div>' +
       '</div>';
