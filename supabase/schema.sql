@@ -75,7 +75,7 @@ create index if not exists announcements_created_idx on public.announcements (cr
 create table if not exists public.halaqa_settings (
   id integer primary key default 1 check (id = 1),
   name text not null default 'حلقة المنارة المتقدمة',
-  mosque text not null default 'جامع الراجحي',
+  mosque text not null default 'حلقات جامع الراجحي',
   association text not null default 'جمعية قبس للقرآن والسنة والخطابة',
   supervisor text not null default '',
   teacher text not null default '',
@@ -453,14 +453,14 @@ values
   (
     1,
     'حلقة المنارة المتقدمة',
-    'جامع الراجحي',
+    'حلقات جامع الراجحي',
     'جمعية قبس للقرآن والسنة والخطابة',
     'الشيخ د. عبدالله بن محمد العمري',
     'الأستاذ محمد بن عبدالله العمري',
     '١٤٤٨هـ — 2026م',
     'السبت والأحد والثلاثاء بعد صلاة العصر',
-    'جامع الراجحي — القاعة الشرقية',
-    'حلقة متقدمة لطلاب جامع الراجحي تجمع بين حفظ القرآن الكريم وعلوم السنة والخطابة، بإشراف جمعية قبس للقرآن والسنة والخطابة. يتابع المعلمون إنجاز كل طالب ويسجّلون ملاحظاتهم وتقييماتهم في سجل رقمي واحد.'
+    'حلقات جامع الراجحي — القاعة الشرقية',
+    'حلقة متقدمة لطلاب حلقات جامع الراجحي تجمع بين حفظ القرآن الكريم وعلوم السنة والخطابة، بإشراف جمعية قبس للقرآن والسنة والخطابة. يتابع المعلمون إنجاز كل طالب ويسجّلون ملاحظاتهم وتقييماتهم في سجل رقمي واحد.'
   )
 on conflict (id) do nothing;
 
