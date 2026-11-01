@@ -28,6 +28,21 @@
   function text(value) { return String(value == null ? '' : value).trim(); }
   function lower(value) { return text(value).toLowerCase(); }
 
+  function normalizeLegacyBranding(settings) {
+    if (!settings) return settings;
+    const normalized = Object.assign({}, settings);
+    if (normalized.mosque === 'جامع الراجحي') {
+      normalized.mosque = 'حلقات جامع الراجحي';
+    }
+    if (normalized.location === 'جامع الراجحي — القاعة الشرقية') {
+      normalized.location = 'حلقات جامع الراجحي — القاعة الشرقية';
+    }
+    if (normalized.description && normalized.description.indexOf('لطلاب جامع الراجحي') !== -1) {
+      normalized.description = normalized.description.replace('لطلاب جامع الراجحي', 'لطلاب حلقات جامع الراجحي');
+    }
+    return normalized;
+  }
+
   function randomId(prefix) {
     if (window.crypto && typeof window.crypto.randomUUID === 'function') {
       return (prefix || 'id_') + window.crypto.randomUUID();
@@ -759,7 +774,7 @@
     }
 
     async getSettings() {
-      return Object.assign({}, this.db.settings);
+      return normalizeLegacyBranding(this.db.settings);
     }
 
     async updateSettings(payload) {
@@ -1291,7 +1306,7 @@
       if (result.error) throw new StoreError('تعذر تحميل إعدادات الحلقة: ' + result.error.message, 'cloud');
       if (!result.data) return clone(DATA.seed.settings);
       const row = result.data;
-      return {
+      return normalizeLegacyBranding({
         name: row.name,
         mosque: row.mosque,
         association: row.association,
@@ -1301,7 +1316,7 @@
         schedule: row.schedule,
         location: row.location,
         description: row.description
-      };
+      });
     }
 
     async updateSettings(payload) {
